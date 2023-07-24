@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Voltorb Flip</string>
+    <string name="title_text">Voltorb Flip</string>
+    <string name="play_button_text">Play!</string>
+    <string name="high_scores_button_text">High Scores</string>
+    <string name="mute_button_text">Mute</string>
 </resources>

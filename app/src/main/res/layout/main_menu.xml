@@ -13,7 +13,7 @@
         android:layout_marginTop="100dp"
         android:layout_marginBottom="200dp"
         android:gravity="center_horizontal"
-        android:text="Voltorb Flip"
+        android:text="@string/title_text"
         android:textSize="60sp" />
 
     <Button
@@ -21,19 +21,19 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:text="Play!" />
+        android:text="@string/play_button_text" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:text="High Scores" />
+        android:text="@string/high_scores_button_text" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:text="Mute" />
+        android:text="@string/mute_button_text" />
 </LinearLayout>
