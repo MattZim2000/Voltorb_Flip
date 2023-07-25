@@ -1,7 +1,31 @@
 <resources>
     <string name="app_name">Voltorb Flip</string>
-    <string name="title_text">Voltorb Flip</string>
     <string name="play_button_text">Play!</string>
     <string name="high_scores_button_text">High Scores</string>
     <string name="mute_button_text">Mute</string>
+    <string name="voltorb_0">0</string>
+    <string name="voltorb_1">1</string>
+    <string name="voltorb_2">2</string>
+    <string name="voltorb_3">3</string>
+    <string name="voltorb_4">4</string>
+    <string name="voltorb_5">5</string>
+    <string name="score_00">00</string>
+    <string name="score_01">01</string>
+    <string name="score_02">02</string>
+    <string name="score_03">03</string>
+    <string name="score_04">04</string>
+    <string name="score_05">05</string>
+    <string name="score_06">06</string>
+    <string name="score_07">07</string>
+    <string name="score_08">08</string>
+    <string name="score_09">09</string>
+    <string name="score_10">10</string>
+    <string name="score_11">11</string>
+    <string name="score_12">12</string>
+    <string name="score_13">13</string>
+    <string name="score_14">14</string>
+    <string name="score_15">15</string>
+    <string name="quit">QUIT</string>
+    <string name="restart">RESTART</string>
+    <string name="score">Score:</string>
 </resources>
