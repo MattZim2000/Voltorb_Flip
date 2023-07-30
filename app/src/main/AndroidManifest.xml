@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VoltorbFlip"
         tools:targetApi="31">
+
+        <activity
+            android:name=".GameActivity"
+            android:exported="true"></activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

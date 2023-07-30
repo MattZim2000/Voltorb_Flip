@@ -21,17 +21,6 @@ class MainActivity : ComponentActivity() {
 
         // Other Potential Idea: View Models & Live Data?
 
-        // TODO: Create an empty array of 25 length.
-
-        // TODO: Create an Integer var to hold the ever changing score.
     }
-
-    // TODO: Create the startGame method for restarts and to begin the game.
-    // fun startGame(Array) {
-    // Randomly select 0 (Voltorb Bomb), 1, 2, or 3 for each element.
-// }
-
-    // TODO: Create the flipTile method for onClickListeners to simply the code.
-    // fun flipTile(Integer from Array) {}
 }
 
