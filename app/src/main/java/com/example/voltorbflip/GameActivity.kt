@@ -25,7 +25,7 @@ class GameActivity: ComponentActivity() {
         // call the startGame function.
         var gameArray: Array<Int> = startGame()
 
-        // TODO: Setting up all 27 buttons.
+        // Setting up all 27 buttons.
         // Quit Button
         binding.quitButton.setOnClickListener { switchActivity() }
         // Restart Button (We use startGame() since we want to start another game and not just reset the board.)
@@ -414,7 +414,7 @@ class GameActivity: ComponentActivity() {
         return voltorbTileArray
     }
 
-    // TODO: Create the flipTile method for onClickListeners to simply the code.
+    // The flipTile method for onClickListeners to simply the code.
     private fun flipTile(index: Int, tileList: Array<Int>): Array<Int> {
         // Button image flipping is done in the setOnCLickListener phase.
 
@@ -522,7 +522,7 @@ class GameActivity: ComponentActivity() {
 
     // The switchActivity function switches from GameActivity to the Main Activity. For use in the onClick listener for Quit.
     private fun switchActivity(){
-        // Here incase it is needed.
+        // Stopping music since I am unsure if switching activities calls onPause and onStop.
         music.stop()
         music.release()
 
