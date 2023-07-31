@@ -1,6 +1,7 @@
 package com.example.voltorbflip
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.ComponentActivity
@@ -11,9 +12,15 @@ class GameActivity: ComponentActivity() {
     private val binding: VoltorbFlipGameBinding = VoltorbFlipGameBinding.inflate(getLayoutInflater())
     private var score: Int = 0
 
+    // Creating MusicPlayer
+    private val music: MediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.voltorb_flip_loop)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.voltorb_flip_game)
+
+        // Start music
+        music.start()
 
         // call the startGame function.
         var gameArray: Array<Int> = startGame()
@@ -515,7 +522,27 @@ class GameActivity: ComponentActivity() {
 
     // The switchActivity function switches from GameActivity to the Main Activity. For use in the onClick listener for Quit.
     private fun switchActivity(){
+        // Here incase it is needed.
+        music.stop()
+        music.release()
+
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
+    }
+
+    // onPause, onStop, and onResume are used for stopping or resuming music.
+    override fun onStop(){
+        super.onStop()
+        music.release()
+    }
+
+    override fun onPause(){
+        super.onPause()
+        music.stop()
+    }
+
+    override fun onResume(){
+        super.onResume()
+        music.start()
     }
 }
