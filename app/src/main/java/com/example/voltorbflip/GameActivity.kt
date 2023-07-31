@@ -2,6 +2,7 @@ package com.example.voltorbflip
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.ComponentActivity
 import com.example.voltorbflip.databinding.VoltorbFlipGameBinding
 import java.util.Random
@@ -15,112 +16,295 @@ class GameActivity: ComponentActivity() {
         setContentView(R.layout.voltorb_flip_game)
 
         // call the startGame function.
-        val gameArray = startGame()
+        var gameArray: Array<Int> = startGame()
 
         // TODO: Setting up all 27 buttons.
         // Quit Button
         binding.quitButton.setOnClickListener { switchActivity() }
         // Restart Button (We use startGame() since we want to start another game and not just reset the board.)
         binding.restartButton.setOnClickListener { startGame() }
-        // 25 Grid Buttons (Need unique onClickListeners)
-        binding.button3.setOnClickListener {
 
+        // 25 Grid Buttons (Need unique onClickListeners)
+
+        // Holding drawables needed for the buttons.
+        val onePointDrawable = getDrawable(R.drawable.one)
+        val twoPointDrawable = getDrawable(R.drawable.two)
+        val threePointDrawable = getDrawable(R.drawable.three)
+        val voltorbDrawable = getDrawable(R.drawable.voltorb)
+
+        binding.button3.setOnClickListener {
+            when(gameArray[0]){
+                1 -> binding.button3.setForeground(onePointDrawable)
+                2 -> binding.button3.setForeground(twoPointDrawable)
+                3 -> binding.button3.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button3.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(0, gameArray)
         }
 
         binding.button4.setOnClickListener {
-
+            when(gameArray[1]){
+                1 -> binding.button4.setForeground(onePointDrawable)
+                2 -> binding.button4.setForeground(twoPointDrawable)
+                3 -> binding.button4.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button4.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(1, gameArray)
         }
 
         binding.button5.setOnClickListener {
-
+            when(gameArray[2]){
+                1 -> binding.button5.setForeground(onePointDrawable)
+                2 -> binding.button5.setForeground(twoPointDrawable)
+                3 -> binding.button5.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button5.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(2, gameArray)
         }
 
         binding.button6.setOnClickListener {
-
+            when(gameArray[3]){
+                1 -> binding.button6.setForeground(onePointDrawable)
+                2 -> binding.button6.setForeground(twoPointDrawable)
+                3 -> binding.button6.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button6.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(3, gameArray)
         }
 
         binding.button7.setOnClickListener {
-
+            when(gameArray[4]){
+                1 -> binding.button7.setForeground(onePointDrawable)
+                2 -> binding.button7.setForeground(twoPointDrawable)
+                3 -> binding.button7.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button7.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(4, gameArray)
         }
 
         binding.button8.setOnClickListener {
-
+            when(gameArray[5]){
+                1 -> binding.button8.setForeground(onePointDrawable)
+                2 -> binding.button8.setForeground(twoPointDrawable)
+                3 -> binding.button8.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button8.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(5, gameArray)
         }
 
         binding.button9.setOnClickListener {
-
+            when(gameArray[6]){
+                1 -> binding.button9.setForeground(onePointDrawable)
+                2 -> binding.button9.setForeground(twoPointDrawable)
+                3 -> binding.button9.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button9.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(6, gameArray)
         }
 
         binding.button10.setOnClickListener {
-
+            when(gameArray[7]){
+                1 -> binding.button10.setForeground(onePointDrawable)
+                2 -> binding.button10.setForeground(twoPointDrawable)
+                3 -> binding.button10.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button10.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(7, gameArray)
         }
 
         binding.button11.setOnClickListener {
-
+            when(gameArray[8]){
+                1 -> binding.button11.setForeground(onePointDrawable)
+                2 -> binding.button11.setForeground(twoPointDrawable)
+                3 -> binding.button11.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button11.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(8, gameArray)
         }
 
         binding.button12.setOnClickListener {
-
+            when(gameArray[9]){
+                1 -> binding.button12.setForeground(onePointDrawable)
+                2 -> binding.button12.setForeground(twoPointDrawable)
+                3 -> binding.button12.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button12.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(9, gameArray)
         }
 
         binding.button13.setOnClickListener {
-
+            when(gameArray[10]){
+                1 -> binding.button13.setForeground(onePointDrawable)
+                2 -> binding.button13.setForeground(twoPointDrawable)
+                3 -> binding.button13.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button13.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(10, gameArray)
         }
 
         binding.button14.setOnClickListener {
-
+            when(gameArray[11]){
+                1 -> binding.button14.setForeground(onePointDrawable)
+                2 -> binding.button14.setForeground(twoPointDrawable)
+                3 -> binding.button14.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button14.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(11, gameArray)
         }
 
         binding.button15.setOnClickListener {
-
+            when(gameArray[12]){
+                1 -> binding.button15.setForeground(onePointDrawable)
+                2 -> binding.button15.setForeground(twoPointDrawable)
+                3 -> binding.button15.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button15.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(12, gameArray)
         }
 
         binding.button16.setOnClickListener {
-
+            when(gameArray[13]){
+                1 -> binding.button16.setForeground(onePointDrawable)
+                2 -> binding.button16.setForeground(twoPointDrawable)
+                3 -> binding.button16.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button16.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(13, gameArray)
         }
 
         binding.button17.setOnClickListener {
-
+            when(gameArray[14]){
+                1 -> binding.button17.setForeground(onePointDrawable)
+                2 -> binding.button17.setForeground(twoPointDrawable)
+                3 -> binding.button17.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button17.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(14, gameArray)
         }
 
         binding.button18.setOnClickListener {
-
+            when(gameArray[15]){
+                1 -> binding.button18.setForeground(onePointDrawable)
+                2 -> binding.button18.setForeground(twoPointDrawable)
+                3 -> binding.button18.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button18.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(15, gameArray)
         }
 
         binding.button19.setOnClickListener {
-
+            when(gameArray[16]){
+                1 -> binding.button19.setForeground(onePointDrawable)
+                2 -> binding.button19.setForeground(twoPointDrawable)
+                3 -> binding.button19.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button19.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(16, gameArray)
         }
 
         binding.button20.setOnClickListener {
-
+            when(gameArray[17]){
+                1 -> binding.button20.setForeground(onePointDrawable)
+                2 -> binding.button20.setForeground(twoPointDrawable)
+                3 -> binding.button20.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button20.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(17, gameArray)
         }
 
         binding.button21.setOnClickListener {
-
+            when(gameArray[18]){
+                1 -> binding.button21.setForeground(onePointDrawable)
+                2 -> binding.button21.setForeground(twoPointDrawable)
+                3 -> binding.button21.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button21.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(18, gameArray)
         }
 
         binding.button22.setOnClickListener {
-
+            when(gameArray[19]){
+                1 -> binding.button22.setForeground(onePointDrawable)
+                2 -> binding.button22.setForeground(twoPointDrawable)
+                3 -> binding.button22.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button22.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(19, gameArray)
         }
 
         binding.button23.setOnClickListener {
-
+            when(gameArray[20]){
+                1 -> binding.button23.setForeground(onePointDrawable)
+                2 -> binding.button23.setForeground(twoPointDrawable)
+                3 -> binding.button23.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button23.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(20, gameArray)
         }
 
         binding.button24.setOnClickListener {
-
+            when(gameArray[21]){
+                1 -> binding.button24.setForeground(onePointDrawable)
+                2 -> binding.button24.setForeground(twoPointDrawable)
+                3 -> binding.button24.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button24.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(21, gameArray)
         }
 
         binding.button25.setOnClickListener {
-
+            when(gameArray[22]){
+                1 -> binding.button25.setForeground(onePointDrawable)
+                2 -> binding.button25.setForeground(twoPointDrawable)
+                3 -> binding.button25.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button25.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(22, gameArray)
         }
 
         binding.button26.setOnClickListener {
-
+            when(gameArray[23]){
+                1 -> binding.button26.setForeground(onePointDrawable)
+                2 -> binding.button26.setForeground(twoPointDrawable)
+                3 -> binding.button26.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button26.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(23, gameArray)
         }
 
         binding.button27.setOnClickListener {
-
+            when(gameArray[24]){
+                1 -> binding.button27.setForeground(onePointDrawable)
+                2 -> binding.button27.setForeground(twoPointDrawable)
+                3 -> binding.button27.setForeground(threePointDrawable)
+                4 -> {} // We want nothing to occur when we pass the solved tile.
+                else -> binding.button27.setForeground(voltorbDrawable)
+            }
+            gameArray = flipTile(24, gameArray)
         }
     }
 
@@ -229,7 +413,7 @@ class GameActivity: ComponentActivity() {
 
         when(tileList[index]){
             1 ->{
-                if(score == 0) {score = 1}
+                if(score == 0) { score = 1 }
             }
             2 ->{
                 if(score == 0) {score = 2}
