@@ -366,54 +366,54 @@ class GameActivity: Activity() {
         val binding: VoltorbFlipGameBinding = VoltorbFlipGameBinding.inflate(getLayoutInflater())
 
         // Row 1 Points
-        binding.textView2.setText(voltorbTileArray[0] + voltorbTileArray[1] + voltorbTileArray[2] + voltorbTileArray[3] + voltorbTileArray[4])
+        binding.textView2.setText("${voltorbTileArray[0] + voltorbTileArray[1] + voltorbTileArray[2] + voltorbTileArray[3] + voltorbTileArray[4]}")
         // Row 1 Voltorbs
-        binding.textView11.setText(voltorbTotalsArray[0])
+        binding.textView11.setText("${voltorbTotalsArray[0]}")
 
         // Row 2 Points
-        binding.textView3.setText(voltorbTileArray[5] + voltorbTileArray[6] + voltorbTileArray[7] + voltorbTileArray[8] + voltorbTileArray[9])
+        binding.textView3.setText("${voltorbTileArray[5] + voltorbTileArray[6] + voltorbTileArray[7] + voltorbTileArray[8] + voltorbTileArray[9]}")
         // Row 2 Voltorbs
-        binding.textView12.setText(voltorbTotalsArray[1])
+        binding.textView12.setText("${voltorbTotalsArray[1]}")
 
         // Row 3 Points
-        binding.textView4.setText(voltorbTileArray[10] + voltorbTileArray[11] + voltorbTileArray[12] + voltorbTileArray[13] + voltorbTileArray[14])
+        binding.textView4.setText("${voltorbTileArray[10] + voltorbTileArray[11] + voltorbTileArray[12] + voltorbTileArray[13] + voltorbTileArray[14]}")
         // Row 3 Voltorbs
-        binding.textView14.setText(voltorbTotalsArray[2])
+        binding.textView14.setText("${voltorbTotalsArray[2]}")
 
         // Row 4 Points
-        binding.textView5.setText(voltorbTileArray[15] + voltorbTileArray[16] + voltorbTileArray[17] + voltorbTileArray[18] + voltorbTileArray[19])
+        binding.textView5.setText("${voltorbTileArray[15] + voltorbTileArray[16] + voltorbTileArray[17] + voltorbTileArray[18] + voltorbTileArray[19]}")
         // Row 4 Voltorbs
-        binding.textView15.setText(voltorbTotalsArray[3])
+        binding.textView15.setText("${voltorbTotalsArray[3]}")
 
         // Row 5 Points
-        binding.textView13.setText(voltorbTileArray[20] + voltorbTileArray[21] + voltorbTileArray[22] + voltorbTileArray[23] + voltorbTileArray[24])
+        binding.textView13.setText("${voltorbTileArray[20] + voltorbTileArray[21] + voltorbTileArray[22] + voltorbTileArray[23] + voltorbTileArray[24]}")
         // Row 5 Voltorbs
-        binding.textView16.setText(voltorbTotalsArray[4])
+        binding.textView16.setText("${voltorbTotalsArray[4]}")
 
         // Column 1 Points
-        binding.textView6.setText(voltorbTileArray[0] + voltorbTileArray[5] + voltorbTileArray[10] + voltorbTileArray[15] + voltorbTileArray[20])
+        binding.textView6.setText("${voltorbTileArray[0] + voltorbTileArray[5] + voltorbTileArray[10] + voltorbTileArray[15] + voltorbTileArray[20]}")
         // Column 1 Voltorbs
-        binding.textView17.setText(voltorbTotalsArray[5])
+        binding.textView17.setText("${voltorbTotalsArray[5]}")
 
         // Column 2 Points
-        binding.textView7.setText(voltorbTileArray[1] + voltorbTileArray[6] + voltorbTileArray[11] + voltorbTileArray[16] + voltorbTileArray[21])
+        binding.textView7.setText("${voltorbTileArray[1] + voltorbTileArray[6] + voltorbTileArray[11] + voltorbTileArray[16] + voltorbTileArray[21]}")
         // Column 2 Voltorbs
-        binding.textView18.setText(voltorbTotalsArray[6])
+        binding.textView18.setText("${voltorbTotalsArray[6]}")
 
         // Column 3 Points
-        binding.textView8.setText(voltorbTileArray[2] + voltorbTileArray[7] + voltorbTileArray[12] + voltorbTileArray[17] + voltorbTileArray[22])
+        binding.textView8.setText("${voltorbTileArray[2] + voltorbTileArray[7] + voltorbTileArray[12] + voltorbTileArray[17] + voltorbTileArray[22]}")
         // Column 3 Voltorbs
-        binding.textView19.setText(voltorbTotalsArray[7])
+        binding.textView19.setText("${voltorbTotalsArray[7]}")
 
         // Column 4 Points
-        binding.textView9.setText(voltorbTileArray[3] + voltorbTileArray[8] + voltorbTileArray[13] + voltorbTileArray[18] + voltorbTileArray[23])
+        binding.textView9.setText("${voltorbTileArray[3] + voltorbTileArray[8] + voltorbTileArray[13] + voltorbTileArray[18] + voltorbTileArray[23]}")
         // Column 4 Voltorbs
-        binding.textView20.setText(voltorbTotalsArray[8])
+        binding.textView20.setText("${voltorbTotalsArray[8]}")
 
         // Column 5 Points
-        binding.textView10.setText(voltorbTileArray[4] + voltorbTileArray[4] + voltorbTileArray[14] + voltorbTileArray[19] + voltorbTileArray[24])
+        binding.textView10.setText("${voltorbTileArray[4] + voltorbTileArray[4] + voltorbTileArray[14] + voltorbTileArray[19] + voltorbTileArray[24]}")
         // Column 5 Voltorbs
-        binding.textView21.setText(voltorbTotalsArray[9])
+        binding.textView21.setText("${voltorbTotalsArray[9]}")
 
 
 
@@ -451,7 +451,7 @@ class GameActivity: Activity() {
 
         // Updating points on the score
         val binding: VoltorbFlipGameBinding = VoltorbFlipGameBinding.inflate(getLayoutInflater())
-        binding.textView22.setText(score)
+        binding.textView22.setText("$score")
 
         return tileList
     }
@@ -463,7 +463,7 @@ class GameActivity: Activity() {
 
         // Set score back to 0
         score = 0
-        binding.textView22.setText(score)
+        binding.textView22.setText("$score")
 
         // Turn back all tiles to the checkerboard side.
         // Buttons 3 - 27
