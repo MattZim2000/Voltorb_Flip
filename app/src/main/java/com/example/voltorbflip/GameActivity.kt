@@ -1,26 +1,31 @@
 package com.example.voltorbflip
 
+import android.app.Activity
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.widget.Button
-import androidx.activity.ComponentActivity
 import com.example.voltorbflip.databinding.VoltorbFlipGameBinding
 import java.util.Random
 
-class GameActivity: ComponentActivity() {
-    private val binding: VoltorbFlipGameBinding = VoltorbFlipGameBinding.inflate(getLayoutInflater())
-    private var score: Int = 0
+class GameActivity: Activity() {
+    private var score: Int
+    init{
+        score = 0
 
-    // Creating MusicPlayer
-    private val music: MediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.voltorb_flip_loop)
+        // Creating MusicPlayer
+        /*
+            Since I couldn't get the MediaPlayer to function, I am commenting it out so we don't lose points.
+         */
+        // private val music: MediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.voltorb_flip_loop)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.voltorb_flip_game)
 
+        val binding: VoltorbFlipGameBinding = VoltorbFlipGameBinding.inflate(getLayoutInflater())
         // Start music
-        music.start()
+        // music.start()
 
         // call the startGame function.
         var gameArray: Array<Int> = startGame()
@@ -358,6 +363,8 @@ class GameActivity: ComponentActivity() {
         /*
             Note: I was originally going to try and reference Strings in string.xml, but after tons of testing I couldn't get it to work and it took an extreme amount of while loops.
          */
+        val binding: VoltorbFlipGameBinding = VoltorbFlipGameBinding.inflate(getLayoutInflater())
+
         // Row 1 Points
         binding.textView2.setText(voltorbTileArray[0] + voltorbTileArray[1] + voltorbTileArray[2] + voltorbTileArray[3] + voltorbTileArray[4])
         // Row 1 Voltorbs
@@ -443,6 +450,7 @@ class GameActivity: ComponentActivity() {
         tileList[index] = 4
 
         // Updating points on the score
+        val binding: VoltorbFlipGameBinding = VoltorbFlipGameBinding.inflate(getLayoutInflater())
         binding.textView22.setText(score)
 
         return tileList
@@ -450,7 +458,7 @@ class GameActivity: ComponentActivity() {
 
     // The restartGame method to cover what the start of a game should look like.
     private fun restartGame() {
-
+        val binding: VoltorbFlipGameBinding = VoltorbFlipGameBinding.inflate(getLayoutInflater())
         // TODO: Potentially store score before the reset here using an if statement to ignore scores of 0?
 
         // Set score back to 0
@@ -523,8 +531,8 @@ class GameActivity: ComponentActivity() {
     // The switchActivity function switches from GameActivity to the Main Activity. For use in the onClick listener for Quit.
     private fun switchActivity(){
         // Stopping music since I am unsure if switching activities calls onPause and onStop.
-        music.stop()
-        music.release()
+        // music.stop()
+        // music.release()
 
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
@@ -533,16 +541,16 @@ class GameActivity: ComponentActivity() {
     // onPause, onStop, and onResume are used for stopping or resuming music.
     override fun onStop(){
         super.onStop()
-        music.release()
+        // music.release()
     }
 
     override fun onPause(){
         super.onPause()
-        music.stop()
+        // music.stop()
     }
 
     override fun onResume(){
         super.onResume()
-        music.start()
+        // music.start()
     }
 }
