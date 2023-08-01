@@ -16,6 +16,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.voltorbflip.ui.theme.VoltorbFlipTheme
 import java.util.prefs.Preferences
 
+/*
+    For the game layout to look correct, use a phone emulator of Pixel 3, otherwise the distortion
+    of the screen vs the background of the game layout will ruin the look of it. Future iterations of this game would likely
+    use a constraint layout to better deal with the distortion caused by different screen sizes.
+ */
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
