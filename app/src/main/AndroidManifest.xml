@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".ScoresApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -10,17 +11,20 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/voltorb"
         android:supportsRtl="true"
-        android:theme="@style/Theme.VoltorbFlip"
+        android:theme="@style/Theme.AppCompat"
         tools:targetApi="31">
-
+        <activity
+            android:name=".NewScoreActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ScoreActivity"
+            android:exported="true" />
         <activity
             android:name=".DynamicButtons"
-            android:exported="true"></activity>
-
+            android:exported="true" />
         <activity
             android:name=".GameActivity"
-            android:exported="true"></activity>
-
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

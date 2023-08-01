@@ -29,7 +29,10 @@ class MainActivity : ComponentActivity() {
 
         //switch to high score layout on click
         val highScoreButton: Button = findViewById(R.id.score_button)
-        highScoreButton.setOnClickListener { setContentView(R.layout.high_scores) }
+        highScoreButton.setOnClickListener {
+            val intent = Intent(this@MainActivity, ScoreActivity::class.java)
+            startActivity(intent)
+         }
 
 
         //temp button to test the dynamic button builder
