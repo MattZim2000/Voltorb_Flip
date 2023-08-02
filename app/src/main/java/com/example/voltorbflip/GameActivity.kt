@@ -379,7 +379,7 @@ class GameActivity: Activity() {
 
         var bombCount = 0
         // Randomly select 0 (Voltorb Bomb), 1 point, 2 points, or 3 points for each element.
-        for(element in 1..24) {
+        for(element in 0..24) {
 
             //limits number of voltorbs to 6
             var rng = Random().nextInt(4)
