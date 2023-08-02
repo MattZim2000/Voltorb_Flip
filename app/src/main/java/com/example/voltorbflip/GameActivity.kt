@@ -519,6 +519,9 @@ class GameActivity: Activity() {
             else -> {
                 //score = 0
                 Toast.makeText(this, "Game Over!", Toast.LENGTH_LONG).show()
+                val intent = Intent(this, GameOverActivity::class.java)
+                intent.putExtra("message_key", score.toString())
+                startActivity(intent)
             }
 
         }

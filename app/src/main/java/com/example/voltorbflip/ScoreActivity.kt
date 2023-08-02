@@ -27,24 +27,17 @@ class ScoreActivity : ComponentActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
+        val intent = intent
+        if(intent != null) {
+            if (intent.hasExtra("score")) {
+                val str = intent.getStringExtra("score")!!.toInt()
+
+                scoreViewModel.insert(Score(str, str))
+            }
+        }
+
         scoreViewModel.allScores.observe(this) { scores ->
             scores.let { adapter.submitList(it) }
-        }
-    }
-    override fun onActivityResult(requestCode: Int, resultCode: Int, intentData: Intent?) {
-        super.onActivityResult(requestCode, resultCode, intentData)
-
-        if (requestCode == newScoreActivityRequestCode && resultCode == Activity.RESULT_OK) {
-            intentData?.getStringExtra(NewScoreActivity.EXTRA_REPLY)?.let { reply ->
-                val score = Score(12, reply.toInt())
-                scoreViewModel.insert(score)
-            }
-        } else {
-            Toast.makeText(
-                applicationContext,
-                "Empty not saved",
-                Toast.LENGTH_LONG
-            ).show()
         }
     }
 }
