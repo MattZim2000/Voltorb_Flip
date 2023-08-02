@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import android.util.Log
 import com.example.voltorbflip.databinding.VoltorbFlipGameBinding
 import java.util.Random
 
@@ -50,6 +51,7 @@ class GameActivity: Activity() {
 
         val r1c1Button: Button = findViewById(R.id.button3)
         r1c1Button.setOnClickListener {
+            Log.i("game", gameArray[0].toString())
             when(gameArray[0]){
                 1 -> r1c1Button.setForeground(onePointDrawable)
                 2 -> r1c1Button.setForeground(twoPointDrawable)
@@ -58,6 +60,7 @@ class GameActivity: Activity() {
                 else -> r1c1Button.setForeground(voltorbDrawable)
             }
             gameArray = flipTile(0, gameArray)
+            Log.i("game", gameArray[0].toString())
         }
 
         val r1c2Button: Button = findViewById(R.id.button4)
@@ -207,11 +210,11 @@ class GameActivity: Activity() {
         val r3c4Button: Button = findViewById(R.id.button16)
         r3c4Button.setOnClickListener {
             when(gameArray[13]){
-                1 -> r3c3Button.setForeground(onePointDrawable)
-                2 -> r3c3Button.setForeground(twoPointDrawable)
-                3 -> r3c3Button.setForeground(threePointDrawable)
+                1 -> r3c4Button.setForeground(onePointDrawable)
+                2 -> r3c4Button.setForeground(twoPointDrawable)
+                3 -> r3c4Button.setForeground(threePointDrawable)
                 4 -> {} // We want nothing to occur when we pass the solved tile.
-                else -> r3c3Button.setForeground(voltorbDrawable)
+                else -> r3c4Button.setForeground(voltorbDrawable)
             }
             gameArray = flipTile(13, gameArray)
         }
@@ -371,9 +374,19 @@ class GameActivity: Activity() {
             voltorbTotalsArray[element] = 0
         }
 
+        var bombCount = 0
         // Randomly select 0 (Voltorb Bomb), 1 point, 2 points, or 3 points for each element.
         for(element in voltorbTileArray) {
-            voltorbTileArray[element] = Random().nextInt(4)
+
+            //limits number of voltorbs to 6
+            var rng = Random().nextInt(4)
+            if(rng == 0 && bombCount < 6) {
+                bombCount++
+            }
+            else if (rng == 0 && bombCount > 6) {
+                rng = Random().nextInt(2) + 1
+            }
+            voltorbTileArray[element] = rng
 
             // Used Later for voltorb counts in the text views.
             // Row 1
@@ -388,15 +401,15 @@ class GameActivity: Activity() {
             if(element in 20..24 && voltorbTileArray[element] == 0) {voltorbTotalsArray[4] += 1}
 
             // Column 1
-            if((element == 0 || element == 5 || element == 10 || element == 15 || element == 20) && voltorbTileArray[element] == 0) {voltorbTotalsArray[5] += 1}
+            if((element % 5 == 0) && voltorbTileArray[element] == 0) {voltorbTotalsArray[5] += 1}
             // Column 2
-            if((element == 1 || element == 6 || element == 11 || element == 16 || element == 21) && voltorbTileArray[element] == 0) {voltorbTotalsArray[6] += 1}
+            if((element % 5 == 1) && voltorbTileArray[element] == 0) {voltorbTotalsArray[6] += 1}
             // Column 3
-            if((element == 2 || element == 7 || element == 12 || element == 17 || element == 22) && voltorbTileArray[element] == 0) {voltorbTotalsArray[7] += 1}
+            if((element % 5 == 2) && voltorbTileArray[element] == 0) {voltorbTotalsArray[7] += 1}
             // Column 4
-            if((element == 3 || element == 8 || element == 13 || element == 18 || element == 23) && voltorbTileArray[element] == 0) {voltorbTotalsArray[8] += 1}
+            if((element % 5 == 3) && voltorbTileArray[element] == 0) {voltorbTotalsArray[8] += 1}
             // Column 5
-            if((element == 4 || element == 9 || element == 14 || element == 19 || element == 24) && voltorbTileArray[element] == 0) {voltorbTotalsArray[9] += 1}
+            if((element % 5 == 4) && voltorbTileArray[element] == 0) {voltorbTotalsArray[9] += 1}
         }
 
         /*
@@ -468,7 +481,7 @@ class GameActivity: Activity() {
 
         // Column 5 Points
         val c5Points: TextView = findViewById(R.id.textView10)
-        c5Points.setText("${voltorbTileArray[4] + voltorbTileArray[4] + voltorbTileArray[14] + voltorbTileArray[19] + voltorbTileArray[24]}")
+        c5Points.setText("${voltorbTileArray[4] + voltorbTileArray[9] + voltorbTileArray[14] + voltorbTileArray[19] + voltorbTileArray[24]}")
         // Column 5 Voltorbs
         val c5Voltorbs: TextView = findViewById(R.id.textView21)
         c5Voltorbs.setText("${voltorbTotalsArray[9]}")
@@ -498,8 +511,8 @@ class GameActivity: Activity() {
             }
             // Voltorb/Bomb
             else -> {
-                score = 0
-                Toast.makeText(this, "Game Over!", Toast.LENGTH_LONG)
+                //score = 0
+                Toast.makeText(this, "Game Over!", Toast.LENGTH_LONG).show()
             }
 
         }
