@@ -8,10 +8,10 @@
         android:id="@+id/itemTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_orange_light" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TEST TEXT"/>
+        android:layout_gravity="center_horizontal"
+        android:background="@color/background_green"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:textSize="30sp" />
 </LinearLayout>
 

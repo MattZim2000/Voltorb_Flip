@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ScoreDao {
-    @Query("SELECT * FROM high_scores ORDER BY score ASC")
+    @Query("SELECT * FROM high_scores ORDER BY score DESC")
     fun getSortedScores(): Flow<List<Score>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
