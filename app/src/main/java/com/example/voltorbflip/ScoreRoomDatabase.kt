@@ -26,15 +26,6 @@ abstract class ScoreRoomDatabase : RoomDatabase() {
             INSTANCE?.let { database ->
                 scope.launch {
                     var scoreDao = database.scoreDao()
-
-                    // Delete all content here.
-                    scoreDao.deleteAll()
-
-                    // Add sample words.
-                    var score = Score(1, 100)
-                    scoreDao.insert(score)
-                    score = Score(2, 200)
-                    scoreDao.insert(score)
                 }
             }
         }

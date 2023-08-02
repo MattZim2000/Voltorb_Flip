@@ -41,12 +41,6 @@ class MainActivity : ComponentActivity() {
          }
 
 
-        //temp button to test the dynamic button builder
-        val muteButton: Button = findViewById(R.id.mute_button)
-        muteButton.setOnClickListener {
-            val intent = Intent(this, DynamicButtons::class.java)
-            startActivity(intent)
-        }
         // Temporary High Score Idea: An array holding scores for the current game session.
 
         // Other Potential Idea: View Models & Live Data?

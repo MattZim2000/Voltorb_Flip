@@ -34,12 +34,6 @@
             android:layout_marginBottom="15dp"
             android:text="@string/high_scores_button_text" />
 
-        <Button
-            android:id="@+id/mute_button"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:text="@string/mute_button_text" />
     </LinearLayout>
 
 </LinearLayout>

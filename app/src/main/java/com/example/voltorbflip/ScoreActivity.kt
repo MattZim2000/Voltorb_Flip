@@ -27,15 +27,8 @@ class ScoreActivity : ComponentActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
-
         scoreViewModel.allScores.observe(this) { scores ->
             scores.let { adapter.submitList(it) }
-        }
-
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
-        fab.setOnClickListener {
-            val intent = Intent(this@ScoreActivity, NewScoreActivity::class.java)
-            startActivityForResult(intent, newScoreActivityRequestCode)
         }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, intentData: Intent?) {
