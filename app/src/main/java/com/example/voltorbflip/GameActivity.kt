@@ -9,9 +9,12 @@ import android.widget.TextView
 import android.widget.Toast
 import android.util.Log
 import com.example.voltorbflip.databinding.VoltorbFlipGameBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
 import java.util.Random
 
 class GameActivity: Activity() {
+    //lets us send score to db
     private var score: Int
     init{
         score = 0
@@ -376,7 +379,7 @@ class GameActivity: Activity() {
 
         var bombCount = 0
         // Randomly select 0 (Voltorb Bomb), 1 point, 2 points, or 3 points for each element.
-        for(element in voltorbTileArray) {
+        for(element in 1..24) {
 
             //limits number of voltorbs to 6
             var rng = Random().nextInt(4)
@@ -384,7 +387,7 @@ class GameActivity: Activity() {
                 bombCount++
             }
             else if (rng == 0 && bombCount > 6) {
-                rng = Random().nextInt(2) + 1
+                rng = 1
             }
             voltorbTileArray[element] = rng
 
@@ -412,6 +415,9 @@ class GameActivity: Activity() {
             if((element % 5 == 4) && voltorbTileArray[element] == 0) {voltorbTotalsArray[9] += 1}
         }
 
+        for(i in voltorbTotalsArray) {
+            Log.i("game", voltorbTotalsArray[i].toString())
+        }
         /*
             Note: I was originally going to try and reference Strings in string.xml, but after tons of testing I couldn't get it to work and it took an extreme amount of while loops.
          */
